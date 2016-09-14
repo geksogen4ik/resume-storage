@@ -33,7 +33,7 @@ public class ArrayStorage {
                         return storage[i];
                     }
                 }
-              System.out.println("Такого " + uuid + " резюме не существует, если хотите создать нажмите save");
+              System.out.println("Такого " + uuid + " резюме не существует, если хотите создать нажмите - save");
         return null;
     }
 
