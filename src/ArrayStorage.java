@@ -46,7 +46,7 @@ public class ArrayStorage {
                 storage[size] = null;
                 size--;
                 System.out.println("Резюме удалено " + uuid);
-            } else System.out.println("Такого " + uuid + " резюме не существует, если хотите создать нажмите - save");
+           
         }
     }
 
