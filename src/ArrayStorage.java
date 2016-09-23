@@ -15,7 +15,7 @@ public class ArrayStorage {
 
     void save(Resume r) {
          if (size == storageMaxLenth) {
-            System.out.println("Хранилище переполнено!");
+            System.out.println("Хранилище  переполнено!");
             return;
         }
         for (int i = 0; i < size; i++) {
@@ -35,7 +35,7 @@ public class ArrayStorage {
                         return storage[i];
                     }
                 }
-              System.out.println("Такого " + uuid + " резюме не существует, если хотите создать нажмите - save");
+              System.out.println("Такого " + uuid + " резюме  не существует, если хотите создать нажмите - save");
         return null;
     }
 
@@ -46,7 +46,7 @@ public class ArrayStorage {
                 storage[size] = null;
                 size--;
                 System.out.println("Резюме удалено " + uuid);
-            } else System.out.println("Такого " + uuid + " резюме не существует, если хотите создать нажмите - save");
+            } else System.out.println("Такого " + uuid + " резюме не существует, если хотите создать нажмите - save!!!");
            
         }
     }
@@ -63,6 +63,7 @@ public class ArrayStorage {
     }
 
     int size() {
+
         return size;
     }
 }
