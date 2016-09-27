@@ -7,12 +7,8 @@ import java.util.Arrays;
 /**
  * Created by Sveta on 25.09.2016.
  */
-public class AbstractArrayStorage {
-    import java.util.Arrays;
 
-    /**
-     * Array based storage for Resumes
-     */
+
     public abstract class AbstractArrayStorage implements Storage{
 
         public static final String RESUME_DID_NOT_FIND_BY_UUID_S = "Resume did not find by uuid=%s";
@@ -94,4 +90,4 @@ public class AbstractArrayStorage {
         protected abstract void fillDeletedElement(int index);
 
     }
-}
+

@@ -6,7 +6,11 @@ import model.Resume;
  * Created by Sveta on 25.09.2016.
  */
 public class ArrayStorage extends AbstractArrayStorage{
+    private int size = 0;
+    private int storageMaxLength = 10000;
+    private Resume[] storage = new Resume[storageMaxLength];
 
+    
     protected int getIndex(String uuid){
         int index = -1;
         for (int i = 0; i < size; i++) {

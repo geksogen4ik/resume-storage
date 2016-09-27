@@ -7,7 +7,7 @@ import java.util.Arrays;
 /**
  * Created by Sveta on 25.09.2016.
  */
-public class SortedArrayStorage {
+public class SortedArrayStorage extends AbstractArrayStorage {
     @Override
     protected int getIndex(String uuid) {
         Resume searchKey = new Resume();
