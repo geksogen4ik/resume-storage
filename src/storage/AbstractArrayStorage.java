@@ -24,25 +24,20 @@ import java.util.Arrays;
         }
 
     public void save(Resume r) {
-
     }
-
     public void delete(String uuid) {
-
     }
-
-    public int size() {
-            return size;
-        }
-
+    public void update(Resume r) {
+    }
     public Resume get(String uuid) {
         return null;
     }
-
-
-    public void update(Resume r) {
-
+    public int size() {
+        return size;
     }
+
+
+
 
     public Resume[] getAll() {
             return Arrays.copyOf(storage, size);
