@@ -23,66 +23,28 @@ import java.util.Arrays;
             size = 0;
         }
 
-        public void save(Resume r){
+    public void save(Resume r) {
 
-            int index = getIndex(r.getUuid());
-            if (index == -1) {
-                System.out.println("ERROR: The same " + r + "resume already exists");
-                return;
-            }
-
-            if (size == STORAGE_LIMIT) {
-                System.out.println("ERROR: Storage is full");
-                return;
-            }
-            {
-
-                storage[size] = r;
-                size++;
-            }
-        }
-
-
-    public void delete(String uuid) {
-        int index = getIndex(uuid);
-        if (index == -1) {
-            System.out.println("ERROR: This " + uuid + " don't exist, if you want to create, click  - save");
-            {
-                storage[index] = storage[size];
-                size--;
-                System.out.println("Resume delete" + uuid);
-                return;
-            }
-
-        }
     }
 
-        public int size() {
+    public void delete(String uuid) {
+
+    }
+
+    public int size() {
             return size;
         }
 
-        public Resume get(String uuid) {
-            int index = getIndex(uuid);
-            if (index == -1) {
-                System.out.println("ERROR: This " + uuid + " don't exist, if you want to create, click  - save");
-                return null;}
-
-            {
-                return storage[index];
-            }
-
-        }
+    public Resume get(String uuid) {
+        return null;
+    }
 
 
     public void update(Resume r) {
-        int index = getIndex(r.getUuid());
-        if (index == -1) {
-            System.out.println("ERROR: This " + r + " don't exist, if you want to create, click  - save");
-        }
-        storage[index] = r;
+
     }
 
-        public Resume[] getAll() {
+    public Resume[] getAll() {
             return Arrays.copyOf(storage, size);
         }
 
