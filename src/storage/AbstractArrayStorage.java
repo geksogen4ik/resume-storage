@@ -37,8 +37,6 @@ import java.util.Arrays;
     }
 
 
-
-
     public Resume[] getAll() {
             return Arrays.copyOf(storage, size);
         }
