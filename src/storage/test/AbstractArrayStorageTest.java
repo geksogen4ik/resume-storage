@@ -72,7 +72,7 @@ public abstract class AbstractArrayStorageTest {
 
     @Test
     public void get() throws Exception {
-        Assert.assertEquals(UUID_1, storage.get(UUID_1).getUuid());
+        Assert.assertEquals(UUID_1, storage.get(UUID_1));
 
     }
 
