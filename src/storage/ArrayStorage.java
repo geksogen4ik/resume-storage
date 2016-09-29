@@ -22,7 +22,7 @@ public class ArrayStorage extends AbstractArrayStorage {
     public void save(Resume r) {
 
         int index = getIndex(r.getUuid());
-        if (index == -1) {
+        if (index > 0) {
             System.out.println("ERROR: The same " + r + "resume already exists");
             return;
         }
@@ -41,7 +41,7 @@ public class ArrayStorage extends AbstractArrayStorage {
 
     public void delete(String uuid) {
         int index = getIndex(uuid);
-        if (index == -1) {System.out.println("ERROR: This " + uuid + " don't exist, if you want to create, click  - save");{
+        if (index < 0) {System.out.println("ERROR: This " + uuid + " don't exist, if you want to create, click  - save");{
             storage[index] = storage[size];
                 size--;
                 System.out.println("Resume delete" + uuid);
@@ -56,7 +56,7 @@ public class ArrayStorage extends AbstractArrayStorage {
 
     public Resume get(String uuid) {
         int index = getIndex(uuid);
-        if (index == -1) {
+        if (index < 0) {
             System.out.println("ERROR: This " + uuid + " don't exist, if you want to create, click  - save");
             return null;
         }
@@ -70,24 +70,27 @@ public class ArrayStorage extends AbstractArrayStorage {
 
     public void update(Resume r) {
         int index = getIndex(r.getUuid());
-        if (index == -1) {
+        if (index < 0) {
             System.out.println("ERROR: This " + r + " don't exist, if you want to create, click  - save");
         }
         storage[index] = r;
     }
 
     public Resume[] getAll() {
-        return Arrays.copyOf(storage, size);
+
+        return Arrays.copyOfRange(storage, 0, size);
     }
 
 
     @Override
     protected void insertElement(Resume r, int index) {
+
         storage[size] = r;
     }
 
     @Override
     protected void fillDeletedElement(int index) {
+
         storage[index] = storage[size];
     }
 

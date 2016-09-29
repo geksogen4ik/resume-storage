@@ -1,5 +1,7 @@
 import model.Resume;
 import storage.ArrayStorage;
+import storage.SortedArrayStorage;
+import storage.test.AbstractArrayStorageTest;
 
 /**
  * Test for com.urise.webapp.storage.ArrayStorage
@@ -8,11 +10,11 @@ public class MainTestArrayStorage {
     static final ArrayStorage ARRAY_STORAGE = new ArrayStorage();
 
     public static void main(String[] args) {
-        Resume r1 = new Resume();
+        Resume r1 = new Resume(uuid);
         r1.uuid = "uuid1";
-        Resume r2 = new Resume();
+        Resume r2 = new Resume(uuid);
         r2.uuid = "uuid2";
-        Resume r3 = new Resume();
+        Resume r3 = new Resume(uuid);
         r3.uuid = "uuid3";
 
         ARRAY_STORAGE.save(r1);
@@ -38,5 +40,15 @@ public class MainTestArrayStorage {
         for (Resume r : ARRAY_STORAGE.getAll()) {
             System.out.println(r);
         }
+    }
+
+    /**
+     * Created by Sveta on 29.09.2016.
+     */
+    public static class SortedArrayStorageTest extends AbstractArrayStorageTest {
+        public SortedArrayStorageTest() {
+            super(new SortedArrayStorage());
+        }
+
     }
 }
