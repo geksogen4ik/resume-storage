@@ -16,9 +16,10 @@ import java.util.Arrays;
 
 
 
-        protected static final int STORAGE_LIMIT = 10000;
+        public static final int STORAGE_LIMIT = 10000;
 
-        protected Resume[] storage = new Resume[STORAGE_LIMIT];
+
+    protected Resume[] storage = new Resume[STORAGE_LIMIT];
         protected int size;
 
         public void clear() {
