@@ -47,5 +47,9 @@ public class MainTestArrayStorage {
             super(new SortedArrayStorage());
         }
 
+        @Override
+        protected void assertArraySort(Resume resume2, Resume resume, Resume resume1) {
+
+        }
     }
 }
