@@ -5,7 +5,7 @@ import java.util.UUID;
 /**
  * Created by Sveta on 25.09.2016.
  */
-public class Resume implements Comparable<Resume>{
+public class Resume implements Comparable<Resume> {
 
     // Unique identifier
     final public String uuid;
