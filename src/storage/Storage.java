@@ -20,5 +20,7 @@ public interface Storage {
     Resume[] getAll();
 
     int size();
+
+    void insertElement(Resume resume, int index);
 }
 
