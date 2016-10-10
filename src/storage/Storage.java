@@ -21,6 +21,5 @@ public interface Storage {
 
     int size();
 
-    void insertElement(Resume resume, int index);
 }
 

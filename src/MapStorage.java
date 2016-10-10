@@ -1,7 +1,5 @@
-import exeption.ExistStorageException;
-import exeption.NotExistStorageException;
-import model.Resume;
 
+import model.Resume;
 import java.util.*;
 
 /**
@@ -54,4 +52,5 @@ public class MapStorage extends AbstractStorage {
     public int size() {
         return storage.size();
     }
+
 }
