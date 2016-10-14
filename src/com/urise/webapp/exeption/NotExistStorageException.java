@@ -1,4 +1,4 @@
-package exeption;
+package com.urise.webapp.exeption;
 
 /**
  * Created by Sveta on 29.09.2016.

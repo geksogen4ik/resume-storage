@@ -2,7 +2,7 @@ package storage.test;
 
 import model.Resume;
 import storage.ArrayStorage;
-import storage.test.AbstractArrayStorageTest;
+
 
 /**
  * Created by Sveta on 29.09.2016.

@@ -1,11 +1,14 @@
+package storage;
 
 import model.Resume;
+import storage.AbstractStorage;
+
 import java.util.*;
 
 /**
  * Created by Sveta on 06.10.2016.
  */
-public class MapStorage extends AbstractStorage {
+public class MapUUidStorage extends AbstractStorage {
     Map<String,Resume> storage = new HashMap<>();
 
     @Override

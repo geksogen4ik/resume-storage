@@ -1,10 +1,10 @@
-import exeption.ExistStorageException;
-import exeption.NotExistStorageException;
+package storage;
+import com.urise.webapp.exeption.ExistStorageException;
+import com.urise.webapp.exeption.NotExistStorageException;
 import model.Resume;
-import storage.Storage;
 
 /**
- * Created by Sveta on 08.10.2016.
+ * Created by Sveta on 14.10.2016.
  */
 public abstract class AbstractStorage implements Storage {
 
@@ -57,4 +57,5 @@ public abstract class AbstractStorage implements Storage {
     }
 
 }
+
 

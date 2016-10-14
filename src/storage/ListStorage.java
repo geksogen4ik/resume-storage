@@ -1,5 +1,8 @@
-import exeption.NotExistStorageException;
+package storage;
+
+import com.urise.webapp.exeption.NotExistStorageException;
 import model.Resume;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +10,7 @@ import java.util.List;
  * Created by Sveta on 06.10.2016.
  */
 
-public class ListStorage extends AbstractStorage{
+public class ListStorage extends AbstractStorage {
 
     private List<Resume> storage = new ArrayList<>();
 
@@ -42,6 +45,7 @@ public class ListStorage extends AbstractStorage{
 
     @Override
     protected void doSave(Resume r, Object searchKey) {
+
         storage.add(r);
     }
 
