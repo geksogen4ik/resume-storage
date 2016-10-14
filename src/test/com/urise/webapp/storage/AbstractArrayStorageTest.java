@@ -15,8 +15,6 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -51,8 +49,7 @@ public abstract class AbstractArrayStorageTest {
         this.storage = storage;
     }
 
-    public AbstractArrayStorageTest(ArrayStorage arrayStorage) {
-    }
+
 
     public AbstractArrayStorageTest(SortedArrayStorage sortedArrayStorage) {
     }
@@ -76,7 +73,7 @@ public abstract class AbstractArrayStorageTest {
 
     private void assertArraySort(Resume resumes1, Resume resume1, Resume resume, Resume resumes) {
         List<Resume> array = Arrays.asList(resumes);
-        assertTrue(array.containsAll(Arrays.asList(storage.getAll())));
+        assertTrue(array.containsAll(Arrays.asList(storage.getAllSorted())));
     }
 
     @Test
@@ -85,7 +82,7 @@ public abstract class AbstractArrayStorageTest {
         Resume r2 = new Resume(UUID_2);
         storage.save(r2);
         assertArraySort(new Resume(UUID_1), new Resume(UUID_2), new Resume(UUID_3), new Resume(UUID_4));
-        assertArrayEquals(resumes, storage.getAll());
+        assertArrayEquals(resumes, storage.getAllSorted());
 
     }
 
@@ -95,8 +92,10 @@ public abstract class AbstractArrayStorageTest {
         Resume[] resumes = {new Resume(UUID_1), new Resume(UUID_2), new Resume(UUID_3), new Resume(UUID_4)};
         storage.delete(UUID_3);
         assertArraySort(new Resume(UUID_1), new Resume(UUID_2), new Resume(UUID_4));
-        assertArrayEquals(resumes, storage.getAll());
+        assertArrayEquals(resumes, storage.getAllSorted());
     }
+
+    protected abstract void assertArrayEquals(Resume[] resumes, List<Resume> allSorted);
 
     protected abstract void assertArraySort(Resume resume2, Resume resume, Resume resume1);
 
@@ -173,8 +172,8 @@ public abstract class AbstractArrayStorageTest {
     @Test
     public void getAll() throws Exception {
         Resume[] resumes = {new Resume(UUID_1), new Resume(UUID_2), new Resume(UUID_3)};
-        storage.getAll();
-        assertArrayEquals(resumes, storage.getAll());
+        storage.getAllSorted();
+        assertArrayEquals(resumes, storage.getAllSorted());
 
 
     }

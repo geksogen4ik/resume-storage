@@ -2,7 +2,7 @@
  * Created by Sveta on 29.09.2016.
  */
 
-import model.Resume;
+import com.urise.webapp.model.Resume;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

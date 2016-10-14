@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Sveta on 06.10.2016.
  */
 
-public class ListStorage extends AbstractStorage {
+public class ListStorage extends AbstractStorage<R> {
 
     private List<Resume> storage = new ArrayList<>();
 

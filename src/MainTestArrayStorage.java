@@ -1,7 +1,7 @@
-import model.Resume;
-import storage.ArrayStorage;
-import storage.SortedArrayStorage;
-import storage.test.AbstractArrayStorageTest;
+import com.urise.webapp.model.Resume;
+import com.urise.webapp.storage.ArrayStorage;
+import com.urise.webapp.storage.SortedArrayStorage;
+import test.com.urise.webapp.storage.AbstractArrayStorageTest;
 
 /**
  * Test for com.urise.webapp.storage.ArrayStorage
