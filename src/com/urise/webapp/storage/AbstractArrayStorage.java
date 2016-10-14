@@ -1,6 +1,6 @@
-package storage;
+package com.urise.webapp.storage;
 import com.urise.webapp.exeption.StorageException;
-import model.Resume;
+import com.urise.webapp.model.Resume;
 
 import java.util.Arrays;
 

@@ -1,6 +1,7 @@
-package storage;
+package com.urise.webapp.storage;
 
-import model.Resume;
+
+import com.urise.webapp.model.Resume;
 
 /**
  * Created by Sveta on 25.09.2016.

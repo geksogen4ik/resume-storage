@@ -1,15 +1,16 @@
-package storage;
+package com.urise.webapp.storage;
 
-import model.Resume;
-import storage.AbstractStorage;
 
-import java.util.*;
+import com.urise.webapp.model.Resume;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Sveta on 06.10.2016.
  */
 public class MapUUidStorage extends AbstractStorage {
-    Map<String,Resume> storage = new HashMap<>();
+    Map<String, Resume> storage = new HashMap<>();
 
     @Override
     public void clear() {
@@ -28,26 +29,31 @@ public class MapUUidStorage extends AbstractStorage {
 
     @Override
     protected void doSave(Resume r, Object searchKey) {
-        storage.put((String)searchKey, r);
+        storage.put((String) searchKey, r);
     }
+
 
     @Override
     protected void doDelete(Object searchKey) {
+
         storage.remove(searchKey);
     }
 
     @Override
     protected Resume doGet(Object searchKey) {
+
         return storage.get(searchKey);
     }
 
     @Override
-    protected void doUpdate(Resume r, Object searchKey) {
-        storage.put((String)searchKey, r);
+    protected void doUpdate(Resume r, Object searchKey)
+    {
+        storage.put((String) searchKey, r);
     }
 
     @Override
     public Resume[] getAll() {
+
         return storage.values().toArray(new Resume[storage.size()]);
     }
 

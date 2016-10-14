@@ -1,4 +1,4 @@
-package storage;
+package com.urise.webapp.storage;
 
 /**
  * Created by Sveta on 14.10.2016.

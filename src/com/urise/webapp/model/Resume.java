@@ -1,13 +1,11 @@
-package model;
+package com.urise.webapp.model;
 
 import java.util.UUID;
 
 /**
- * Created by Sveta on 25.09.2016.
+ * Created by Sveta on 14.10.2016.
  */
-import java.util.UUID;
-
-public class Resume implements Comparable<Resume>{
+public class Resume{
 
     // Unique identifier
     private final String uuid;
@@ -55,11 +53,6 @@ public class Resume implements Comparable<Resume>{
     @Override
     public int hashCode() {
         return uuid.hashCode();
-    }
-
-    @Override
-    public int compareTo(Resume o) {
-        return uuid.compareTo(o.uuid);
     }
 
 }

@@ -1,7 +1,5 @@
-package storage.test;
+package test.com.urise.webapp.storage;
 
-import model.Resume;
-import storage.ArrayStorage;
 
 
 /**
@@ -12,8 +10,5 @@ public class ArrayStorageTest extends AbstractArrayStorageTest {
         super(new ArrayStorage());
     }
 
-    @Override
-    protected void assertArraySort(Resume resume2, Resume resume, Resume resume1) {
 
-    }
 }
