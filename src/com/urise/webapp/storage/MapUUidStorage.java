@@ -10,8 +10,10 @@ import java.util.Map;
 /**
  * Created by Sveta on 06.10.2016.
  */
-public class MapUUidStorage extends AbstractStorage<R> {
-    Map<String, Resume> storage = new HashMap<>();
+public class MapUUidStorage extends AbstractStorage<Resume>{
+
+    Map<String,Resume> storage = new HashMap<>();
+
 
     @Override
     public void clear() {
@@ -24,60 +26,75 @@ public class MapUUidStorage extends AbstractStorage<R> {
     }
 
     @Override
-    protected String getSearchKey(String uuid) {
-        return uuid;
+    public int size() {
+        return storage.size();
+    }
+
+    @Override
+    protected Object getSearchKey(String uuid) {
+        return storage.get(uuid);
     }
 
     @Override
     protected boolean isExist(Object searchKey) {
-
-        return storage.containsKey(searchKey);
-    }
-
-    @Override
-    protected boolean isExist(Resume resume) {
         return false;
     }
 
     @Override
     protected void doSave(Resume r, Object searchKey) {
 
-        storage.put((String) searchKey, r);
     }
-
 
     @Override
     protected void doDelete(Object searchKey) {
 
-        storage.remove(searchKey);
     }
 
     @Override
     protected Resume doGet(Object searchKey) {
-
-        return storage.get(searchKey);
+        return null;
     }
 
     @Override
-    protected void doUpdate(Resume r, Object searchKey)
-    {
-        storage.put((String) searchKey, r);
+    protected void doUpdate(Resume r, Object searchKey) {
     }
 
     @Override
     public Resume[] getAll() {
-
-        return storage.values().toArray(new Resume[storage.size()]);
+        return new Resume[0];
     }
 
     @Override
-    public int size() {
-        return storage.size();
+    protected boolean isExist(Resume resume) {
+        return resume != null;
+    }
+
+    @Override
+    protected void doSave(Resume r, Resume resume) {
+        storage.put(r.getUuid(), r);
+
+    }
+
+    @Override
+    protected void doDelete(Resume resume) {
+        storage.remove(resume.getUuid());
+
+    }
+
+    @Override
+    protected Resume doGet(Resume resume) {
+        return resume;
+    }
+
+    @Override
+    protected void doUpdate(Resume r, Resume resume) {
+        storage.put(r.getUuid(), r);
+
     }
 
     @Override
     public List<Resume> doCopyAll() {
         return new ArrayList<>(storage.values());
     }
-
 }
+
