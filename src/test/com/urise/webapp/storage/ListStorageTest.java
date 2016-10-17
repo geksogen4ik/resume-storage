@@ -15,13 +15,4 @@ public class ListStorageTest extends AbstractArrayStorageTest {
         super(new ListStorage());
     }
 
-    @Override
-    protected void assertArrayEquals(Resume[] resumes, List<Resume> allSorted) {
-
-    }
-
-    @Override
-    protected void assertArraySort(Resume resume2, Resume resume, Resume resume1) {
-
-    }
 }

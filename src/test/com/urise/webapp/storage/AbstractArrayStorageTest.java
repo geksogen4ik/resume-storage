@@ -21,107 +21,12 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by Sveta on 29.09.2016.
  */
-public abstract class AbstractArrayStorageTest {
-
-    private Storage storage = new ArrayStorage();
-
-    private static final String UUID_1 = "uuid1";
-    private static final Resume RESUME_1;
-
-    private static final String UUID_2 = "uuid2";
-    private static final Resume RESUME_2;
-
-    private static final String UUID_3 = "uuid3";
-    private static final Resume RESUME_3;
-
-    private static final String UUID_4 = "uuid4";
-    private static final Resume RESUME_4;
-
-    static{
-        RESUME_1 = new Resume(UUID_1);
-        RESUME_2 = new Resume(UUID_2);
-        RESUME_3 = new Resume(UUID_3);
-        RESUME_4 = new Resume(UUID_4);
-    }
-
+public abstract class AbstractArrayStorageTest extends AbstractStorageTest {
 
     protected AbstractArrayStorageTest(Storage storage) {
-        this.storage = storage;
+      super(storage);
     }
 
-
-
-    public AbstractArrayStorageTest(SortedArrayStorage sortedArrayStorage) {
-    }
-
-
-    @Before
-    public void setUp() throws Exception {
-        storage.clear();
-        storage.save(RESUME_1);
-        storage.save(RESUME_2);
-        storage.save(RESUME_3);
-
-    }
-
-    @Test
-    public void clear() throws Exception {
-        Resume[] resumes = {new Resume(UUID_1), new Resume(UUID_2), new Resume(UUID_3)};
-        storage.clear();
-        assertSize(0);
-    }
-
-    private void assertArraySort(Resume resumes1, Resume resume1, Resume resume, Resume resumes) {
-        List<Resume> array = Arrays.asList(resumes);
-        assertTrue(array.containsAll(Arrays.asList(storage.getAllSorted())));
-    }
-
-    @Test
-    public void save() throws Exception {
-        Resume[] resumes = {new Resume(UUID_1), new Resume(UUID_2), new Resume(UUID_3), new Resume(UUID_4)};
-        Resume r2 = new Resume(UUID_2);
-        storage.save(r2);
-        assertArraySort(new Resume(UUID_1), new Resume(UUID_2), new Resume(UUID_3), new Resume(UUID_4));
-        assertArrayEquals(resumes, storage.getAllSorted());
-
-    }
-
-
-    @Test
-    public void delete() throws Exception {
-        Resume[] resumes = {new Resume(UUID_1), new Resume(UUID_2), new Resume(UUID_3), new Resume(UUID_4)};
-        storage.delete(UUID_3);
-        assertArraySort(new Resume(UUID_1), new Resume(UUID_2), new Resume(UUID_4));
-        assertArrayEquals(resumes, storage.getAllSorted());
-    }
-
-    protected abstract void assertArrayEquals(Resume[] resumes, List<Resume> allSorted);
-
-    protected abstract void assertArraySort(Resume resume2, Resume resume, Resume resume1);
-
-
-    @Test
-    public void update() throws Exception {
-        Resume r3 = new Resume(UUID_3);
-        storage.update(r3);
-        assertEquals(r3, storage.get(UUID_3));
-
-    }
-
-    @Test
-    public void get() throws Exception {
-        assertGet(RESUME_1);
-        assertGet(RESUME_2);
-        assertGet(RESUME_3);
-
-
-    }
-
-    @Test(expected = ExistStorageException.class)
-    public void saveExist() throws Exception {
-        storage.save(RESUME_1);
-
-    }
 
     @Test(expected = StorageException.class)
     public void testSaveStorageException() {
@@ -129,54 +34,11 @@ public abstract class AbstractArrayStorageTest {
             for (int i = 4; i <= AbstractArrayStorage.STORAGE_LIMIT; i++) {
                 storage.save(new Resume());
             }
-        }catch (StorageException e){
+        } catch (StorageException e) {
             Assert.fail();
 
         }
         storage.save(new Resume());
     }
-
-    @Test(expected = NotExistStorageException.class)
-    public void getNotExist() throws Exception {
-        storage.get("dummy");
-
-    }
-
-    @Test(expected = NotExistStorageException.class)
-    public void updateNotExist() throws Exception {
-        storage.update(RESUME_1);
-
-
-    }
-
-    @Test(expected = NotExistStorageException.class)
-    public void deleteNotExist() throws Exception {
-        storage.delete("dummy");
-
-    }
-
-    @Test
-    public void size() throws Exception {
-        assertSize(3);
-
-    }
-
-    private void assertSize(int size) {
-        assertEquals(size, storage.size());
-    }
-
-    private void assertGet(Resume r) {
-        assertEquals(r, storage.get(r.getUuid()));
-    }
-
-    @Test
-    public void getAll() throws Exception {
-        Resume[] resumes = {new Resume(UUID_1), new Resume(UUID_2), new Resume(UUID_3)};
-        storage.getAllSorted();
-        assertArrayEquals(resumes, storage.getAllSorted());
-
-
-    }
-
-
 }
+

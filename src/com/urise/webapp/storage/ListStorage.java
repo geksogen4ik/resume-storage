@@ -11,7 +11,7 @@ import java.util.List;
  * Created by Sveta on 06.10.2016.
  */
 
-public class ListStorage extends AbstractStorage<R> {
+public class ListStorage extends AbstractStorage<Resume> {
 
     private List<Resume> storage = new ArrayList<>();
 
@@ -27,6 +27,11 @@ public class ListStorage extends AbstractStorage<R> {
             throw new NotExistStorageException(r.getUuid());
         }
         storage.add(ind, r);
+    }
+
+    @Override
+    public List<Resume> getAllSorted() {
+        return null;
     }
 
     @Override
@@ -68,6 +73,36 @@ public class ListStorage extends AbstractStorage<R> {
     @Override
     public Resume[] getAll() {
         return storage.toArray(new Resume[storage.size()]);
+    }
+
+    @Override
+    protected void doSave(Resume r, Resume resume) {
+
+    }
+
+    @Override
+    protected void doDelete(Resume resume) {
+
+    }
+
+    @Override
+    protected Resume doGet(Resume resume) {
+        return null;
+    }
+
+    @Override
+    protected void doUpdate(Resume r, Resume resume) {
+
+    }
+
+    @Override
+    protected boolean isExist(Resume resume) {
+        return false;
+    }
+
+    @Override
+    public List<Resume> doCopyAll() {
+        return null;
     }
 
     @Override
