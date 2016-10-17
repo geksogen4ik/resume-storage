@@ -11,33 +11,33 @@ import java.util.List;
  * Created by Sveta on 06.10.2016.
  */
 
-public class ListStorage extends AbstractStorage<Resume> {
+public  class ListStorage extends AbstractStorage <Integer> {
 
-    private List<Resume> storage = new ArrayList<>();
+    private List<Resume> list = new ArrayList<>();
 
     @Override
     public void clear() {
-        storage.clear();
+        list.clear();
     }
 
     @Override
     public void update(Resume r) {
-        int ind = storage.indexOf(r);
+        int ind = list.indexOf(r);
         if(ind == -1){
             throw new NotExistStorageException(r.getUuid());
         }
-        storage.add(ind, r);
+        list.add(ind, r);
     }
 
     @Override
-    public List<Resume> getAllSorted() {
-        return null;
+    public List<Resume> doCopyAll() {
+        return new ArrayList<>(list);
     }
 
     @Override
     protected Integer getSearchKey(String uuid) {
-        for (int i = 0; i<storage.size(); i++){
-            if(storage.get(i).getUuid().equals(uuid)){
+        for (int i = 0; i<list.size(); i++){
+            if(list.get(i).getUuid().equals(uuid)){
                 return i;
             }
         }
@@ -45,69 +45,35 @@ public class ListStorage extends AbstractStorage<Resume> {
     }
 
     @Override
-    protected boolean isExist(Object searchKey) {
+    protected boolean isExist(Integer searchKey) {
         return searchKey != null;
     }
 
     @Override
-    protected void doSave(Resume r, Object searchKey) {
+    protected void doSave(Resume r, Integer searchKey) {
 
-        storage.add(r);
+       list.add(r);
     }
 
     @Override
-    protected void doDelete(Object searchKey) {
-        storage.remove(((Integer)searchKey).intValue());
+    protected void doDelete(Integer searchKey) {
+        list.remove(searchKey.intValue());
     }
 
     @Override
-    protected Resume doGet(Object searchKey) {
-        return storage.get((Integer)searchKey);
+    protected Resume doGet(Integer searchKey) {
+        return list.get(searchKey);
     }
 
     @Override
-    protected void doUpdate(Resume r, Object searchKey) {
-        storage.set((Integer)searchKey, r);
+    protected void doUpdate(Resume r, Integer searchKey) {
+        list.set(searchKey, r);
     }
 
-    @Override
-    public Resume[] getAll() {
-        return storage.toArray(new Resume[storage.size()]);
-    }
-
-    @Override
-    protected void doSave(Resume r, Resume resume) {
-
-    }
-
-    @Override
-    protected void doDelete(Resume resume) {
-
-    }
-
-    @Override
-    protected Resume doGet(Resume resume) {
-        return null;
-    }
-
-    @Override
-    protected void doUpdate(Resume r, Resume resume) {
-
-    }
-
-    @Override
-    protected boolean isExist(Resume resume) {
-        return false;
-    }
-
-    @Override
-    public List<Resume> doCopyAll() {
-        return null;
-    }
 
     @Override
     public int size() {
-        return storage.size();
+        return list.size();
     }
 
 }

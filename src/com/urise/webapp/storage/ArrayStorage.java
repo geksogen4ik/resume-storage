@@ -21,31 +21,6 @@ public class ArrayStorage extends AbstractArrayStorage {
     }
 
     @Override
-    protected void doSave(Resume r, Resume resume) {
-
-    }
-
-    @Override
-    protected void doDelete(Resume resume) {
-
-    }
-
-    @Override
-    protected Resume doGet(Resume resume) {
-        return null;
-    }
-
-    @Override
-    protected void doUpdate(Resume r, Resume resume) {
-
-    }
-
-    @Override
-    protected boolean isExist(Resume resume) {
-        return false;
-    }
-
-    @Override
     public List<Resume> doCopyAll() {
         return null;
     }

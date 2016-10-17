@@ -15,4 +15,5 @@ public class ListStorageTest extends AbstractArrayStorageTest {
         super(new ListStorage());
     }
 
-}
+
+    }

@@ -10,31 +10,17 @@ import java.util.Comparator;
  */
 public class SortedArrayStorage extends AbstractArrayStorage {
 
-  /*  private static class ResumeComparator implements Comparator<Resume> {
-        @Override
-        public int compare(Resume o1, Resume o2) {
-            return o1.getUuid().compareTo(o2.getUuid());
-        }
-    }
-    */
-
-    private static final Comparator RESUME_COMPARATOR = (Comparator<Resume>) (o1, o2) -> o1.getUuid().compareTo(o2.getUuid());
-
-
-
     @Override
     protected Integer getSearchKey(String uuid) {
-        Resume searchKey = new Resume(uuid);
-        return Arrays.binarySearch(storage, 0, size, searchKey, RESUME_COMPARATOR );
+        Resume searchKey = new Resume(uuid, "dummy");
+        return Arrays.binarySearch(storage, 0 , size, searchKey, ((o1, o2) -> o1.getUuid().compareTo(o2.getUuid())));
     }
-
-
 
     @Override
     protected void insertElement(Resume r, int index) {
-        int insertIdx = - index - 1;
-        System.arraycopy(storage, index, storage, index + 1, size - index);
-        storage[insertIdx] = r;
+        int ind = -index - 1;
+        System.arraycopy(storage, ind, storage, ind+1, size - ind);
+        storage[ind] = r;
     }
 
     @Override
@@ -45,5 +31,5 @@ public class SortedArrayStorage extends AbstractArrayStorage {
         }
     }
 
-}
 
+}
