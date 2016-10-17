@@ -7,8 +7,7 @@ import com.urise.webapp.storage.MapResumeStorage;
 /**
  * Created by Sveta on 17.10.2016.
  */
-public class MapResumeStorageTest extends AbstractStorageTest {
-
+public class MapResumeStorageTest extends AbstractStorageTest{
     public MapResumeStorageTest() {
         super(new MapResumeStorage() {
             @Override
@@ -16,5 +15,7 @@ public class MapResumeStorageTest extends AbstractStorageTest {
                 return null;
             }
         });
+
+
     }
 }

@@ -57,8 +57,6 @@ public abstract class MapResumeStorage extends AbstractStorage<Resume>{
     }
 
 
-
-
     @Override
     public List<Resume> doCopyAll() {
 
