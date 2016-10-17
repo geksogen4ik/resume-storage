@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by Sveta on 06.10.2016.
  */
-public class MapUUidStorage extends AbstractStorage<Resume>{
+public class MapUuidStorage extends AbstractStorage<Resume>{
 
     Map<String,Resume> storage = new HashMap<>();
 
