@@ -1,5 +1,6 @@
 package com.urise.webapp.model;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -7,23 +8,19 @@ import java.util.Objects;
  * Created by Sveta on 22.10.2016.
  */
 public class OrganizationSection extends Section {
-
     private final List<Organization> organizations;
 
+    public OrganizationSection(Organization... organizations) {
+        this(Arrays.asList(organizations));
+    }
 
-    public OrganizationSection(List<Organization> organizations, List<Organization> organizations1) {
-        this.organizations = organizations1;
+    public OrganizationSection(List<Organization> organizations) {
         Objects.requireNonNull(organizations, "Organizations must not be null");
-
+        this.organizations = organizations;
     }
 
     public List<Organization> getOrganizations() {
         return organizations;
-    }
-
-    @Override
-    public String toString() {
-        return "OrganizationSection{}";
     }
 
     @Override
@@ -40,5 +37,10 @@ public class OrganizationSection extends Section {
     @Override
     public int hashCode() {
         return organizations.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return organizations.toString();
     }
 }

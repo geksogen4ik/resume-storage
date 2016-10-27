@@ -11,6 +11,11 @@ public class MapResumeStorageTest extends AbstractStorageTest{
     public MapResumeStorageTest() {
         super(new MapResumeStorage() {
             @Override
+            public int getSize() {
+                return 0;
+            }
+
+            @Override
             protected Resume getSearchKey(String uuid) {
                 return null;
             }

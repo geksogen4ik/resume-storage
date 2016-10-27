@@ -1,5 +1,6 @@
 package com.urise.webapp.model;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -7,7 +8,13 @@ import java.util.Objects;
  * Created by Sveta on 22.10.2016.
  */
 public class ListSection extends Section {
+    private static final long serialVersionUID = 1L;
+
     private final List<String> items;
+
+    public ListSection(String... items) {
+        this(Arrays.asList(items));
+    }
 
     public ListSection(List<String> items) {
         Objects.requireNonNull(items, "Items must not be null");
@@ -32,10 +39,5 @@ public class ListSection extends Section {
     @Override
     public int hashCode() {
         return items.hashCode();
-    }
-
-    @Override
-    public String toString() {
-        return items.toString();
     }
 }

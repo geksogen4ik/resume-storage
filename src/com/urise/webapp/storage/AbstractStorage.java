@@ -11,6 +11,8 @@ import java.util.List;
  */
 public abstract class AbstractStorage<SK> implements Storage {
 
+    public abstract int getSize();
+
     protected abstract SK getSearchKey(String uuid);
 
     protected abstract boolean isExist(SK searchKey);

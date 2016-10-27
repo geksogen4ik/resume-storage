@@ -10,6 +10,11 @@ import java.util.List;
  */
 public class ArrayStorage extends AbstractArrayStorage {
 
+    @Override
+    public int getSize() {
+        return 0;
+    }
+
     protected Integer getSearchKey(String uuid) {
         int index = -1;
         for (int i = 0; i < size; i++) {
