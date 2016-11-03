@@ -1,6 +1,4 @@
 package com.urise.webapp.storage;
-
-
 import com.urise.webapp.exeption.NotExistStorageException;
 import com.urise.webapp.model.Resume;
 
@@ -57,7 +55,7 @@ public  class ListStorage extends AbstractStorage <Integer> {
     @Override
     protected void doSave(Resume r, Integer searchKey) {
 
-       list.add(r);
+        list.add(r);
     }
 
     @Override

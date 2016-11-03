@@ -1,15 +1,10 @@
 package com.urise.webapp.storage;
 
-
 import com.urise.webapp.exeption.StorageException;
 import com.urise.webapp.model.Resume;
+
 import java.util.Arrays;
 import java.util.List;
-
-/**
- * Created by Sveta on 25.09.2016.
- */
-
 
 public abstract class AbstractArrayStorage extends AbstractStorage<Integer>{
     public static final int STORAGE_LIMIT = 10000;

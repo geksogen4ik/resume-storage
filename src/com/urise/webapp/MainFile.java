@@ -11,19 +11,20 @@ public class MainFile {
     public static void main(String[] args) {
         File file = new File(".\\src");
 
-        printPrettyDirectoryDeeply(file);
+        printDirectoryDeeply(file, "");
+
     }
 
-    public static void printDirectoryDeeply(File file) {
-        File[] files = file.listFiles();
+    public static void printDirectoryDeeply(File dir, String offset) {
+        File[] files = dir.listFiles();
 
         if (files != null) {
-            for (File f : files) {
-                if (f.isDirectory()) {
-                    System.out.println("Directory:" + f.getPath());
-                    printDirectoryDeeply(f);
-                } else {
-                    System.out.println("File:" + f.getPath());
+            for (File file : files) {
+                if (file.isFile()) {
+                    System.out.println(offset + "F: " + file.getName());
+                } else if (file.isDirectory()){
+                    System.out.println(offset + "D: " + file.getName());
+                    printDirectoryDeeply(file, offset + "  ");
                 }
             }
         }
@@ -37,6 +38,7 @@ public class MainFile {
         if (files != null) {
             String prefix = file.getName().replaceAll(".", " ");
             for (File f : files) {
+                //printPrettyDirectoryDeeply(f, 0);
                 printPrettyDirectoryDeeply(f, prefix);
             }
         }

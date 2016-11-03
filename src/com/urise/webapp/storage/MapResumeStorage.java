@@ -8,7 +8,7 @@ import java.util.*;
  * Created by Sveta on 17.10.2016.
  */
 public abstract class MapResumeStorage extends AbstractStorage<Resume>{
-    
+
     Map<String,Resume> map= new HashMap<>();
     @Override
     public void clear() {
@@ -63,6 +63,3 @@ public abstract class MapResumeStorage extends AbstractStorage<Resume>{
         return new ArrayList<>(map.values());
     }
 }
-
-
-
