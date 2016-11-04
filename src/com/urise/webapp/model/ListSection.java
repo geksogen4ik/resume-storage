@@ -8,9 +8,11 @@ import java.util.Objects;
  * Created by Sveta on 22.10.2016.
  */
 public class ListSection extends Section {
+
+
     private static final long serialVersionUID = 1L;
 
-    private final List<String> items;
+    private  List<String> items;
 
     public ListSection(String... items) {
         this(Arrays.asList(items));
@@ -19,6 +21,8 @@ public class ListSection extends Section {
     public ListSection(List<String> items) {
         Objects.requireNonNull(items, "Items must not be null");
         this.items = items;
+    }
+    public ListSection() {
     }
 
     public List<String> getItems() {

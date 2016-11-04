@@ -15,8 +15,11 @@ import static com.urise.webapp.util.DateUtil.of;
  * Created by Sveta on 22.10.2016.
  */
 public class Organization implements Serializable{
+    public Organization() {
+    }
+
     private static final long serialVersionUID = 1L;
-    private final Link homePage;
+    private Link homePage;
     private List<Position> positions = new ArrayList<>();
 
     public Organization(String name, String url, Position... positions) {
@@ -43,10 +46,10 @@ public class Organization implements Serializable{
     public static class Position implements Serializable{
 
 
-        private final LocalDate startDate;
-        private final LocalDate endDate;
-        private final String title;
-        private final String description;
+        private  LocalDate startDate;
+        private  LocalDate endDate;
+        private  String title;
+        private  String description;
 
         public Position(int startYear, Month startMonth, String title, String description) {
             this(of(startYear, startMonth), NOW, title, description);
@@ -54,6 +57,9 @@ public class Organization implements Serializable{
 
         public Position(int startYear, Month startMonth, int endYear, Month endMonth, String title, String description) {
             this(of(startYear, startMonth), of(endYear, endMonth), title, description);
+        }
+
+        public Position(LocalDate startDate2, LocalDate endDate2, String orgTitle2) {
         }
 
 

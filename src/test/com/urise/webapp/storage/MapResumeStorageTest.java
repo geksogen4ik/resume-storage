@@ -12,7 +12,6 @@ import com.urise.webapp.storage.MapResumeStorage;
 
         public MapResumeStorageTest() {
             super(new MapResumeStorage() {
-
                 @Override
                 protected Resume getSearchKey(String uuid) {
                     return null;
