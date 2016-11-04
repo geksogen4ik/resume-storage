@@ -1,5 +1,10 @@
 package com.urise.webapp.model;
 
+import com.urise.webapp.util.LocalDateAdapter;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Month;
@@ -43,11 +48,14 @@ public class Organization implements Serializable{
     /**
      * Created by Sveta on 24.10.2016.
      */
+
+    @XmlAccessorType(XmlAccessType.FIELD)
     public static class Position implements Serializable{
 
-
-        private  LocalDate startDate;
-        private  LocalDate endDate;
+        @XmlJavaTypeAdapter(LocalDateAdapter.class)
+        private LocalDate startDate;
+        @XmlJavaTypeAdapter(LocalDateAdapter.class)
+        private LocalDate endDate;
         private  String title;
         private  String description;
 
